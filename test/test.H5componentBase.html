@@ -24,11 +24,31 @@
 	<script type="text/javascript" src="../js/lib/jquery.js"></script>
 	<script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../js/lib/jquery.fullpage.js"></script>
+	<script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+	<link rel="stylesheet" href="../css/H5ComponentBase.css">
 	
 </head>
 <body>
 	<div class="iphone">
 		
 	</div>
+
+	<script type="text/javascript">
+            var cfg = {
+			    type : 'base',
+				bg : '../imgs/p1_people.png',
+				width : 514,
+				height : 306,
+				center:true,
+			}
+			var h5 = new H5ComponentBase('myName',cfg);
+			$('.iphone').append(h5);
+			var leave = true;
+			$('body').click(function(){
+			    leave = !leave;
+			    $('.h5_component').trigger( leave ? 'onLeave' : 'onLoad');
+			    
+			});
+        </script>
 </body>
 </html>
