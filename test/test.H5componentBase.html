@@ -21,7 +21,7 @@
                 background: #fff;
             }
         </style>
-
+     <script type="text/javascript" src="../js/lib/jquery.js"></script>
      <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
      <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
 
@@ -34,15 +34,9 @@
         <script type="text/javascript">
             var cfg = {
 			    type : 'base',
-				bg : './p1_people.png',
+				bg : '../imgs/p1_people.png',
 				width : 514,
 				height : 306,
-				css:{
-					bottom:0,
-					opacity:0,
-				},
-				animateIn:{ bottom:80,opacity:1},
-				animateOut:{ bottom:0,opacity:0 },
 				center:true,
 			}
 			var h5 = new H5ComponentBase('myName',cfg);
