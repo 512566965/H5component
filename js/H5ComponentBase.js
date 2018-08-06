@@ -1,3 +1,5 @@
+/* 基本图文组件对象 */
+
 var H5ComponentBase =function ( name, cfg ) {
     var cfg = cfg || {};
     var id = ( 'h5_c_'+Math.random() ).replace('.','_') ;
@@ -16,12 +18,31 @@ var H5ComponentBase =function ( name, cfg ) {
     if( cfg.center === true){
         component.css({
             marginLeft : ( cfg.width/4 * -1) + 'px',
-            left:'50%',
+            left:'50%'
         })
     }
-  
+    //  ... 很多自定义的参数
+    if( typeof cfg.onclick === 'function' ){
+        component.on('click',cfg.onclick);
+    }
 
-   
+    component.on('onLoad',function(){
+       
+        setTimeout(function(){
+            component.addClass(cls+'_load').removeClass(cls+'_leave');
+            cfg.animateIn && component.animate( cfg.animateIn );
+        },cfg.delay || 0)
+
+        return false;
+    })
+    component.on('onLeave',function(){
+
+        setTimeout(function(){
+            component.addClass(cls+'_leave').removeClass(cls+'_load');
+            cfg.animateOut && component.animate( cfg.animateOut );
+         },cfg.delay || 0)
+        return false;
+    })
 
     return component;
 }

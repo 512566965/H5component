@@ -1,52 +1,53 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<title>H5ComponentBase</title>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-	<style type="text/css">
-		body{
-			margin:0;
-			padding:0;
-			background: #000;
-		}
-		.iphone{
-			width:340px;
-			height: 540px;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			margin: -270px 0 0 -170px;
-			background: #fff;
-		}
-		
-	</style>
-	<script type="text/javascript" src="../js/H5ComponentBase.js"></script>
-	<link rel="stylesheet" href="../css/H5ComponentBase.css">
-	<script type="text/javascript" src="../js/lib/jquery.js"></script>
-	<script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../js/lib/jquery.fullpage.js"></script>
-	
-</head>
-<body>
-	<div class="iphone">
-		
-	</div>
-	<script type="text/javascript">
-		var cfg = {
-			type : 'base',
-			bg : '../imgs/p1_people.png',
-			width : 514,
-			height : 306,
-			
-			center:true,
-		}
-		var h5 = new H5ComponentBase('myName',cfg);
-		console.log(h5);
-		$('.iphone').append(h5);
-		var leave = true;
-		
-	</script>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 
-</body>
+        <title>H5ComponentBase</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                background: #000;
+                font-size: 12px;
+            }
+            .iphone{
+                width: 340px;
+                height: 540px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -270px 0 0 -170px;
+                background: #fff;
+            }
+        </style>
+     <script type="text/javascript" src="../js/lib/jquery.js"></script>
+     <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+     <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+
+    </head>
+    <body>
+        <div class="iphone">
+
+        </div>
+
+        <script type="text/javascript">
+            var cfg = {
+			    type : 'base',
+				bg : '../imgs/p1_people.png',
+				width : 514,
+				height : 306,
+				center:true,
+			}
+			var h5 = new H5ComponentBase('myName',cfg);
+			$('.iphone').append(h5);
+			var leave = true;
+			$('body').click(function(){
+			    leave = !leave;
+			    $('.h5_component').trigger( leave ? 'onLeave' : 'onLoad');
+			    
+			});
+        </script>
+        
+    </body>
 </html>
